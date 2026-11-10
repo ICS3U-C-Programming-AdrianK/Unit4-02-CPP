@@ -10,7 +10,7 @@
 int main() {
     // declare variables
     std::string userNumberStr;
-    int userNumberInt;
+    float userNumberFloat;
     int count = 0;
     int factorial = 1;
 
@@ -22,28 +22,34 @@ int main() {
 
     // activate the try catch
     try {
-        int userNumberInt = std::stoi(userNumberStr);
-        if (userNumberInt > 0) {
-            if (!(userNumberInt == 0) && !(userNumberInt == 1)) {
-                do {
-                    count = count + 1;
-                    factorial = factorial * count;
-                    std::cout << "Tracking " << count << " times through loop";
+        float userNumberFloat = std::stof(userNumberStr);
+        if (userNumberFloat > 0) {
+            if (userNumberFloat == static_cast<int>(userNumberFloat)) {
+                if (!(userNumberFloat == 0) && !(userNumberFloat == 1)) {
+                    do {
+                        count = count + 1;
+                        factorial = factorial * count;
+                        std::cout << "Tracking " << count
+                        << " times through loop";
+                        std::cout << "\n";
+                    } while (userNumberFloat > count);
+                    std::cout << userNumberStr << "! = " << factorial;
                     std::cout << "\n";
-                } while (userNumberInt > count);
-                std::cout << userNumberInt << "! = " << factorial;
-                std::cout << "\n";
+                } else {
+                    std::cout << userNumberStr << "! = " << 1;
+                }
             } else {
+                std::cout << userNumberStr << " is not an integer";
                 std::cout << "\n";
-                std::cout << userNumberInt << "! = " << 1;
             }
         } else {
-            std::cout << userNumberInt << " is not a positive number";
+            std::cout << userNumberStr << " is not a positive number";
+            std::cout << "\n";
         }
     } catch (std::invalid_argument) {
-        std::cout << userNumberInt << " is not an integer";
+        std::cout << userNumberStr << " is not an integer";
         std::cout << "\n";
-    }
+        }
     std::cout << "Thanks for playing";
     std::cout << "\n";
 }
