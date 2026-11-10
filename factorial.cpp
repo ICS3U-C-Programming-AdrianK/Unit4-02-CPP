@@ -23,7 +23,7 @@ int main() {
     // activate the try catch
     try {
         float userNumberFloat = std::stof(userNumberStr);
-        if (userNumberFloat > 0) {
+        if (userNumberFloat >= 0) {
             if (userNumberFloat == static_cast<int>(userNumberFloat)) {
                 if (!(userNumberFloat == 0) && !(userNumberFloat == 1)) {
                     do {
