@@ -37,6 +37,7 @@ int main() {
                     std::cout << "\n";
                 } else {
                     std::cout << userNumberStr << "! = " << 1;
+                    std::cout << "\n";
                 }
             } else {
                 std::cout << userNumberStr << " is not an integer";
